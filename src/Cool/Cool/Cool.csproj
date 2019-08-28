@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="antlr4.runtime.standard" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Tester\CodeGeneration\" />
+    <Folder Include="Tester\Parsing\Fail\" />
+    <Folder Include="Tester\Parsing\Success\" />
+    <Folder Include="Tester\Semantic\Fail\" />
+    <Folder Include="Tester\Semantic\Success\" />
+  </ItemGroup>
+
+</Project>

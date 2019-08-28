@@ -1,0 +1,18 @@
+Call start;Object.constructor:PARAM t0;// Method: Object.abort*(t0 + 3) = Label "Object.abort"// Method: Object.type_name*(t0 + 4) = Label "Object.type_name"// Method: Object.copy*(t0 + 5) = Label "Object.copy"// Class Name is Object*(t0 + 0) = "Object"// Class Large: 6*(t0 + 1) = 6Return ;
+IO.constructor:PARAM t0;PushParam t0;Call Object.constructor;PopParam 1;// Method: IO.out_string*(t0 + 6) = Label "IO.out_string"// Method: IO.out_int*(t0 + 7) = Label "IO.out_int"// Method: IO.in_string*(t0 + 8) = Label "IO.in_string"// Method: IO.in_int*(t0 + 9) = Label "IO.in_int"// Class name is Object*(t0 + 0) = "IO"// Class large: 10*(t0 + 1) = 10// Class Label*(t0 + 2) = Label "_class.IO"Return ;
+_class.IO: _class.Object_class.Int: _class.Object_class.Bool: _class.Object_class.String: _class.Object_wrapper.Int:PARAM t0;t1 = Alloc 7;PushParam t1;Call Object.constructor;PopParam 1;*(t1 + 0) = "Int"*(t1 + 6) = t0*(t1 + 2) = Label "_class.Int"Return t1;
+_wrapper.Bool:PARAM t0;t1 = Alloc 7;PushParam t1;Call Object.constructor;PopParam 1;*(t1 + 0) = "Bool"*(t1 + 6) = t0*(t1 + 2) = Label "_class.Bool"Return t1;
+_wrapper.String:PARAM t0;t1 = Alloc 10;PushParam t1;Call Object.constructor;PopParam 1;*(t1 + 0) = "String"*(t1 + 9) = t0*(t1 + 2) = Label "_class.String"Return t1;
+Object.abort:Goto _abortObject.type_name:PARAM t0;t0 = *(t0 + 0)Return t0;
+Object.copy:PARAM t0;t1 = *(t0 + 1)t2 = 4t1 = t1 * t2PushParam t0;PushParam t1;t0 = Call _copy;PopParam 2;Return t0;
+IO.out_string:PARAM t0;PARAM t1;PushParam t1;t0 = Call _out_string;PopParam 1;Return t0;
+IO.out_int:PARAM t0;PARAM t1;PushParam t1;t0 = Call _out_int;PopParam 1;Return t0;
+IO.in_string:PARAM t0;t0 = Call _in_string;Return t0;
+IO.in_int:PARAM t0;t0 = Call _in_int;Return t0;
+String.length:PARAM t0;PushParam t0;t0 = Call _stringlength;PopParam 1;Return t0;
+String.concat:PARAM t0;PARAM t1;PushParam t0;PushParam t1;t0 = Call _stringconcat;PopParam 2;Return t0;
+String.substr:PARAM t0;PARAM t1;PARAM t2;PushParam t0;PushParam t1;PushParam t2;t0 = Call _stringsubstr;PopParam 3;Return t0;
+_class.Main: _class.IOMain.fibo:PARAM t0;PARAM t1;// Var: it3 = t1t4 = 0t2 = t3 = t4IfZ t2 Goto _else.134t2 = 0Goto _endif.134_else.134:// Var: it3 = t1t4 = 1t2 = t3 = t4IfZ t2 Goto _else.142t2 = 1Goto _endif.142_else.142:t3 = t0// Var: it6 = t1t7 = 1t5 = t6 - t7// Method: Main.fibot4 = *(t3 + 10)PushParam t3;PushParam t5;t3 = Call t4;PopParam 2;t4 = t0// Var: it7 = t1t8 = 2t6 = t7 - t8// Method: Main.fibot5 = *(t4 + 10)PushParam t4;PushParam t6;t4 = Call t5;PopParam 2;t2 = t3 + t4_endif.142:_endif.134:Return t2;
+Main.main:PARAM t0;t2 = t0t4 = t0t6 = 15//  Int is the return typet1 = "Int"// Method: Main.fibot5 = *(t4 + 10)PushParam t4;PushParam t6;t4 = Call t5;//  Int is the return typet1 = "Int"PopParam 2;// Method: Main.out_intt3 = *(t2 + 7)PushParam t2;PushParam t4;t2 = Call t3;// Object is the return typet1 = "Object"PopParam 2;t3 = "Int"t3 = t1 = t3IfZ t3 Goto _attempt_bool.199PushParam t2;t2 = Call _wrapper.Int;PopParam 1;Goto _not_more_attempt.199_attempt_bool.199:t3 = "Bool"t3 = t1 = t3IfZ t3 Goto _attempt_string.199PushParam t2;t2 = Call _wrapper.Bool;PopParam 1;Goto _not_more_attempt.199_attempt_string.199:t3 = "String"t3 = t1 = t3IfZ t3 Goto _not_more_attempt.199PushParam t2;t2 = Call _wrapper.String;PopParam 1;_not_more_attempt.199:Return t2;
+Main.constructor:PARAM t0;PushParam t0;Call IO.constructor;PopParam 1;// Method: Main.fibo*(t0 + 10) = Label "Main.fibo"// Method: Main.main*(t0 + 11) = Label "Main.main"// Class Name: Main*(t0 + 0) = "Main"// Class Large: 12*(t0 + 1) = 12// Class Label*(t0 + 2) = Label "_class.Main"Return ;
+start:t1 = Alloc 12;PushParam t1;Call Main.constructor;PopParam 1;PushParam t1;Call Main.main;PopParam 1;
